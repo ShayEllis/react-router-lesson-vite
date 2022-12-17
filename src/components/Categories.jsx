@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectCategories } from '../features/categories/categoriesSlice';
-// import { Route, Link, useRouteMatch } from 'react-router-dom';
+import { Route, Link, useLocation } from 'react-router-dom'; //useRouteMatch - Old code
 import Category from './Category'
 
 export default function Categories () {
   const categories = useSelector(selectCategories)
-  // const { path, url } = useRouteMatch()
+  const { path, url } = useLocation() //useRouteMatch() - Old code
 
   return (
     <main>
@@ -16,15 +16,18 @@ export default function Categories () {
           Object.keys(categories).map(category => {
             return (
               <li key={category}>
-                {/* <Link to={`${url}/${category}`}>{category}</Link> */}
+                <Link to={`${url}/${category}`}>{category}</Link>
               </li>
             )
           })
         }
       </ul>
-{/*       <Route path={`/${path}/:name`}>
-        <Category />
+        <Route path={`/${path}/:name`} element={<Category />} />
+
+{/*       <Route path={`/${path}/:name`} />
+        <Category />                          //Old code
       </Route> */}
+
     </main>
   )
 }
