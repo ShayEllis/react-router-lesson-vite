@@ -11,15 +11,23 @@ import Categories from "../components/Categories";
 import Author from "../components/Author";
 import Profile from "../components/Profile";
 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 function App() {
   return (
-    <div>
+    <Router>
       <Header />
       <main>
-        {/* Add routes here! */}
+        <Routes>
+          <Route path='/about' element={<About />} />
+          <Route path='/sign-up' element={<SignUp />} />
+          <Route path='/articles' element={<Articles />} />
+          <Route path='/categories/*' element={<Categories />} />
+          <Route path='/profile' element={<Profile />} />
+        </Routes>
       </main>
       <Footer />
-    </div>
+    </Router>
   );
 }
 

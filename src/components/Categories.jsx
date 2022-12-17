@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectCategories } from '../features/categories/categoriesSlice';
-import { Route, Link, useLocation } from 'react-router-dom'; //useRouteMatch - Old code
+import { Routes, Route, Link, useLocation } from 'react-router-dom'; //useRouteMatch - Old code
 import Category from './Category'
 
 export default function Categories () {
@@ -22,7 +22,9 @@ export default function Categories () {
           })
         }
       </ul>
-        <Route path={`/${path}/:name`} element={<Category />} />
+        <Routes>
+          <Route path={`/${path}/:name`} element={<Category />} />
+        </Routes>
 
 {/*       <Route path={`/${path}/:name`} />
         <Category />                          //Old code
