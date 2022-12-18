@@ -6,7 +6,7 @@ import Category from './Category'
 
 export default function Categories () {
   const categories = useSelector(selectCategories)
-  const { path, url } = useLocation() //useRouteMatch() - Old code
+  //const { path, url } = useLocation() //useRouteMatch() - Old code
 
   return (
     <main>
@@ -16,14 +16,14 @@ export default function Categories () {
           Object.keys(categories).map(category => {
             return (
               <li key={category}>
-                <Link to={`${url}/${category}`}>{category}</Link>
+                <Link to={category}>{category}</Link>
               </li>
             )
           })
         }
       </ul>
         <Routes>
-          <Route path={`/${path}/:name`} element={<Category />} />
+          <Route path={`:name`} element={<Category />} />
         </Routes>
 
 {/*       <Route path={`/${path}/:name`} />

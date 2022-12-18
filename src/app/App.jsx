@@ -19,6 +19,8 @@ function App() {
       <Header />
       <main>
         <Routes>
+          <Route path='/articles/:title' element={<Article />} />
+          <Route path='/authors/:name' element={<Author />} />
           <Route path='/about' element={<About />} />
           <Route path='/sign-up' element={<SignUp />} />
           <Route path='/articles' element={<Articles />} />
