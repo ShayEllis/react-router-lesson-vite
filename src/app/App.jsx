@@ -11,6 +11,9 @@ import Categories from "../components/Categories";
 import Author from "../components/Author";
 import Profile from "../components/Profile";
 
+import EditProfileForm from "../components/EditProfileForm";
+
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -25,7 +28,9 @@ function App() {
           <Route path='/sign-up' element={<SignUp />} />
           <Route path='/articles' element={<Articles />} />
           <Route path='/categories/*' element={<Categories />} />
-          <Route path='/profile' element={<Profile />} />
+          <Route path='profile/*' element={<Profile />} />
+            {/* <Route path='edit' element={<EditProfileForm />} />
+          </Route> */}
         </Routes>
       </main>
       <Footer />

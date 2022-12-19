@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Route, Link } from "react-router-dom";
+import { Routes, Route, Outlet, Link } from "react-router-dom";
 import { selectCurrentUser, selectIsLoggedIn } from "../features/session/sessionSlice";
 import EditProfileForm from "./EditProfileForm";
 
@@ -15,8 +15,12 @@ export default function Profile () {
   return (
     <main>
       <h1>{currentUser.username}</h1>
-      <Link to={"/profile/edit"}>Edit</Link>
-      {/* Render a route for EditProfileForm */}
+      <Link to={"edit"}>Edit</Link>
+      <Routes>
+        <Route path='edit' element={<EditProfileForm />} />
+      </Routes>
+
+      {/* <Outlet /> Needed when using nested routes to update a peice of a page */}
     </main>
   )
 }
