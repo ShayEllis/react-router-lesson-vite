@@ -2,7 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectCategories } from '../features/categories/categoriesSlice';
 import { selectArticles } from '../features/articles/articlesSlice';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, Routes, Route } from 'react-router-dom';
+import Article from "./Article";
+
 
 export default function Category () {
   const categories = useSelector(selectCategories)
@@ -26,6 +28,9 @@ export default function Category () {
           })
         }
       </ul>
+      <Routes>
+        <Route path=':title' element={<Article />} />      
+      </Routes>
     </div>
   )
 }

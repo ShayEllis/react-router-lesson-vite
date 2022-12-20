@@ -23,7 +23,7 @@ export default function Categories () {
         }
       </ul>
         <Routes>
-          <Route path={`:name`} element={<Category />} />
+          <Route path={`:name/*`} element={<Category />} />
         </Routes>
 
 {/*       <Route path={`/${path}/:name`} />
