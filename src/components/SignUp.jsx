@@ -2,18 +2,20 @@ import React, { useState } from "react";
 import { signUp } from "../features/session/sessionSlice"
 import { useDispatch } from "react-redux";
 // import useHistory
+import { useNavigate } from 'react-router-dom';
 
 export default function SignUp () {
   const [username, setUsername] = useState("");
   const dispatch = useDispatch();
   
   // Grab the history object
+  const navigate = useNavigate();
 
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(signUp({username: username}));
     // imperatively redirect the user to /profile
-
+    navigate('../profile');
   }
 
   return (

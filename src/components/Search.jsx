@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'; // Needed to change from useHist
 
 const Search = () => {
   const searchInputRef = useRef();
-  const history = useNavigate(); // Needed to change from useHistory to useNavigate because I am using a new version of react-router.
+  const navigate = useNavigate(); // Needed to change from useHistory to useNavigate because I am using a new version of react-router.
 
   const onSearchHandler = (e) => {
     e.preventDefault();
@@ -13,7 +13,7 @@ const Search = () => {
     }
     const queryString = new URLSearchParams(query).toString();
 
-    history.push({ pathname: '/articles', search: queryString})
+    navigate({ pathname: '/articles', search: queryString})
   };
 
   return (

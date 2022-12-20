@@ -1,17 +1,19 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 
 export default function Footer() {
 
   // Get the history object
+  const navigate = useNavigate();
 
   const goBack = () => {
     // imperatively redirect back
-
+    navigate(-1);
   }
 
   const goForward = () => {
     // imperatively redirect forward
-    
+    navigate(+1);
   }
 
   return (
